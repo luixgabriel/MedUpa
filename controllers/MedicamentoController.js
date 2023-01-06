@@ -7,6 +7,15 @@ class MedicamentoController{
         res.render("index")
     }
 
+    async addMed(req,res){
+        res.render('addMed')
+    }
+
+    async updateStock (req,res){
+        var resultado = await Med.findAllMed()
+        res.render('updateStock',{medicamentos: resultado})
+    }
+
     async listMed(req,res){
         try {
             var resultado = await Med.findAllMed()
@@ -16,16 +25,14 @@ class MedicamentoController{
             console.log(error)
         } 
     }
-    async addMed(req,res){
-        res.render('addMed')
-    }
+    
     async create(req,res){
         var {nome,quantidade,fabricante,tipo,lote,DTvalidade,DTfabricacao} = req.body 
         
         try {
            var result = await Med.create(nome,quantidade,fabricante,tipo,lote,DTvalidade,DTfabricacao) 
            if(result){
-            res.send(result.msg)
+            res.redirect('/listmed')
            }
            else{
             res.send(result.msg)
@@ -36,6 +43,21 @@ class MedicamentoController{
         }
       
         
+    }
+
+    async delete(req,res){
+        var {id, quantidade} = req.body
+
+        var result = await Med.delete(id, quantidade)
+        if(result.status){
+            res.redirect('/listmed')
+        }
+      
+    }
+
+    async update(req,res){
+       
+        var {id, quantidade} = req.body
     }
 }
 

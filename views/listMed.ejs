@@ -88,7 +88,7 @@
             <% }) %>
             </table>
             <a href="/addmed" id="links"> Adicionar Medicamento </a>
-            <a href="/attEstoque" id="links"> Atualizar Estoque </a>
+            <a href="/updateStock" id="links"> Atualizar Estoque </a>
             <a href="/saidaPed" id="links"> Saída de pedidos </a>
             
         </div>
@@ -107,8 +107,8 @@
         function confirmarDelete(event, form){
         event.preventDefault();
       
-        var decisao = confirm('Você quer remover esse medicamento?')
-        if (decisao){
+        var decision = confirm('Você quer remover esse medicamento?')
+        if (decision){
              form.submit()
             
         }

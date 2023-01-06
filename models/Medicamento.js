@@ -16,10 +16,8 @@ class Medicamento{
 
     async create(nome,quantidade,fabricante,tipo,lote,DTvalidade,DTfabricacao){
         try {
-            console.log(!isNaN(fabricante))
             
-
-            if(!nome || nome == "" || !isNaN(nome) || !quantidade || quantidade == "" || isNaN(quantidade) || !fabricante || fabricante == "" || !tipo || tipo == "" || !lote || lote == ""){
+            if(!nome || nome == "" || !isNaN(nome) || !quantidade || quantidade == "" || isNaN(quantidade) || !fabricante || fabricante == "" || !isNaN(fabricante) || !tipo || tipo == "" || !lote || lote == ""){
 
                 return{status:false, msg:"O medicamento não foi preenchido corretamente"}
             }
@@ -37,9 +35,46 @@ class Medicamento{
             console.log(error)
             return{status:false, msg:"O medicamento não foi preenchido corretamente"}
         }
-        
-        
+          
     }
-}
+
+    async delete(id, quantidade){
+
+        try {
+            if(quantidade <= 0){
+                 await db.where({id: id}).delete().table('medicamentos')
+                 return {status: true}
+                }
+            else{
+                var result = await db.where({id: id}).update({quantidade: quantidade-1}).into('medicamentos')
+                return {status: true}
+            }
+        } catch (error) {
+            console.log(error)
+            return{status: false}
+        }
+       
+    }
+
+    async updateStock(id, quantidade){
+        if(quantidade){
+            try {
+                var result = await db.where({id: id}).update({quantidade: qntd}).table('medicamentos')
+                return{status: true}
+            } catch (error) {
+                    console.log(error)
+            }
+            
+            
+        }else{
+            res.redirect('listamed')
+        }
+    }
+
+
+
+
+    }
+
 
 module.exports = new Medicamento()
