@@ -1,5 +1,6 @@
 var Med = require('../models/Medicamento')
 var db = require('../database/connection')
+const { render } = require('ejs')
 
 class MedicamentoController{
     async index(req,res){
@@ -9,7 +10,8 @@ class MedicamentoController{
     async listMed(req,res){
         try {
             var resultado = await Med.findAllMed()
-            res.json(resultado)
+            res.render('listMed', {medicamentos: resultado})
+           
         } catch (error) {
             console.log(error)
         }

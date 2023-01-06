@@ -10,6 +10,7 @@ class Medicamento{
            
         } catch (error) {
             console.log(error)
+            return
         } 
     }
 
