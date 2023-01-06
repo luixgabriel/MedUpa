@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <title>medUPA</title>
+</head>
+<body>
+    <header>
+        <div class="header">
+            <h1><a href="/">medUPA</a></h1>
+        </div>
+    </header>
+    <div id="sdMed">
+        <h1>Saída de Medicamentos</h1>
+    </div>
+    <section class="mainLista">
+       
+        <div class="relatorio-pedido">
+            <table id="tabela">
+            <tr>
+                <th>
+                    Nome:
+                </th>
+                <th>
+                    Fabricante:
+                </th>
+                <th>
+                    Tipo:
+                </th>
+                <th>
+                    Lote:
+                </th>
+                <th>
+                    DT de fabricação:
+                </th>
+                <th>
+                    DT de validade:
+                </th>
+                <th>
+                    Estoque:
+                </th>
+                <th>
+                    Saída:
+                </th>
+            <form action="/receive" method="post">   
+                </tr>
+                <% medicamentos.forEach(medicamento => { %>
+                <tr>
+                    <input type="hidden" name="id" value="<%=medicamento.id%>"> 
+                    <td><%=medicamento.nome%></td>
+                    <td><%=medicamento.fabricante%></td>
+                    <td><%=medicamento.tipo%></td>
+                    <td><%=medicamento.lote%></td>
+                    <td><%= new Date(medicamento.DTfabricacao).toLocaleDateString()%></td>
+                    <td><%= new Date(medicamento.DTvalidade).toLocaleDateString()%></td> 
+                    <td><%=medicamento.quantidade%></td>
+                    <td>
+                    <input type="number" name="quantityExit">  
+                    </td>    
+                </tr>
+        
+           
+                <% }) %>
+
+            </table>
+            <div id="dateSaida">
+                <label for="Data de fabricação">Data de saída dos medicamentos:</label>
+                <input type="date" name="DTSaida">
+            </div>
+                <button id="btnAdd" type="submit">Gerar pedido: </button>
+            </div>
+        
+    </section>
+    </form>
+    <footer>
+        <div class="rodape">
+            <img src="../img/pngwing.com.png">
+        </div>
+    </footer>
+    
+</body>
+</html>
+<script>
+
+    
+</script>

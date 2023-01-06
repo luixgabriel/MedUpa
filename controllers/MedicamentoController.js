@@ -11,9 +11,23 @@ class MedicamentoController{
         res.render('addMed')
     }
 
-    async updateStock (req,res){
+    async pdfGenerated(req,res){
+        res.render('pdfGenerated')
+    }
+
+    async pdfGenerate(req,res){
+        var resultado = await Med.findAllMed()
+        res.render('pdfGenerate',{medicamentos: resultado})
+    }
+
+    async updateStock(req,res){
         var resultado = await Med.findAllMed()
         res.render('updateStock',{medicamentos: resultado})
+    }
+
+    async exitRequests(req,res){
+        var resultado = await Med.findAllMed()
+        res.render('exitRequests',{medicamentos: resultado})
     }
 
     async listMed(req,res){
@@ -56,8 +70,19 @@ class MedicamentoController{
     }
 
     async update(req,res){
-       
         var {id, quantidade} = req.body
+        var result = await Med.updateStock(id, quantidade)
+        if(result.status){
+            res.redirect('/listmed')
+        }
+
+    }
+
+    async exit(req,res){
+        var {id, quantityExit, DTSaida,} = req.body
+        await Med.exitRequests(id, quantityExit, DTSaida)
+        res.redirect('/pdfGenerated')
+        
     }
 }
 

@@ -7,16 +7,13 @@ router.get('/', medController.index);
 router.get('/listmed', medController.listMed);
 router.get('/addmed', medController.addMed);
 router.get('/updateStock', medController.updateStock);
+router.get('/exitRequests', medController.exitRequests);
+router.get('/pdfGenerated', medController.pdfGenerated);
+router.get('/pdfGenerate', medController.pdfGenerate);
 router.post('/RecebeMedicamento', medController.create)
-router.post('/apagarMedicamento', medController.delete)
+router.delete('/apagarMedicamento', medController.delete)
+router.post('/recStock', medController.update)
+router.post('/receive', medController.exit)
 
-// router.post('/user', UserController.create);
-// router.get("/user",AdminAuth,UserController.index);
-// router.get("/user/:id",AdminAuth,UserController.findUser);
-// router.put("/user",AdminAuth,UserController.edit);
-// router.delete("/user/:id",AdminAuth,UserController.remove);
-// router.post("/recoverpassword",UserController.recoverPassword);
-// router.post("/changepassword",UserController.changePassword);
-// router.post("/login",UserController.login);
 
 module.exports = router;

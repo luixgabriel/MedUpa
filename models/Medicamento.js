@@ -59,15 +59,44 @@ class Medicamento{
     async updateStock(id, quantidade){
         if(quantidade){
             try {
-                var result = await db.where({id: id}).update({quantidade: qntd}).table('medicamentos')
+                var result = await db.where({id: id}).update({quantidade: quantidade}).table('medicamentos')
                 return{status: true}
             } catch (error) {
-                    console.log(error)
+                return{status: false}
             }
-            
-            
+           
         }else{
-            res.redirect('listamed')
+            return{status: false}
+        }
+    }
+
+    async exitRequests(id, quantityExit, DTSaida){
+        let count = -1
+        let count2 = -1
+
+        for(; count < quantityExit.length;){
+            id.forEach(ids => {
+                count++
+                if (quantityExit[count] == undefined){
+                       return
+                }else{
+                    
+                    db.where({id:ids}).table('medicamentos').select().then(data=>{
+                      data.forEach(med=>{
+                        count2++
+                        var quantityTable = med.quantidade
+                        db.where({id:ids}).update({quantidade: quantityTable - quantityExit[count2], DTsaida: DTSaida, quantidadeSaida: quantityExit[count2] }).table('medicamentos').then(data=>{
+                            return {status:true}
+                        })
+                        
+                      })
+                    }).catch((erro)=>{
+                        console.log(erro)
+                        return {status: false}
+                    })
+                }
+            });
+               
         }
     }
 

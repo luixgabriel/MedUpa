@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <title>medUPA</title>
+</head>
+<body >
+    <header>
+        <div class="header">
+            <h1><a href="/">medUPA</a></h1>
+        </div>
+    </header>
+    <div id="sdMed">
+        <h1>Saída de Medicamentos</h1>
+        
+        <h2 id="date"></h2>
+        
+    </div>
+    <section class="mainLista">
+       
+        <div class="relatorio-pedido">
+            <table id="tabela">
+            <tr>
+                
+                <th>
+                    Nome:
+                </th>
+                <th>
+                    Fabricante:
+                </th>
+                <th>
+                    Tipo:
+                </th>
+                <th>
+                    Lote:
+                </th>
+
+                <th>
+                    DT de validade:
+                </th>
+                <th>
+                    Saída:
+                </th>
+                <th>
+                    Quantidade:
+                </th>
+                <form action="/receb" method="post">   
+            </tr>
+            <% medicamentos.forEach(medicamento => { %>
+
+
+            <% if (medicamento.quantidadeSaida == '') { %>    
+            <tr style="display: none;">
+                
+                <input type="hidden" name="id" value="<%=medicamento.id%>"> 
+                <td><%=medicamento.nome%></td>
+                <td><%=medicamento.fabricante%></td>
+                <td><%=medicamento.tipo%></td>
+                <td><%=medicamento.lote%></td>
+                <td><%= new Date(medicamento.DTvalidade).toLocaleDateString()%></td>
+                <td><%= new Date (medicamentos[0].DTsaida).toLocaleDateString() %></td> 
+                
+                    <td><%=medicamento.quantidadeSaida%></td>         
+            </tr>
+            <%} else { %>
+            <tr>
+                
+                <input type="hidden" name="id" value="<%=medicamento.id%>"> 
+                <td><%=medicamento.nome%></td>
+                <td><%=medicamento.fabricante%></td>
+                <td><%=medicamento.tipo%></td>
+                <td><%=medicamento.lote%></td>
+                <td><%= new Date(medicamento.DTvalidade).toLocaleDateString()%></td>
+                <td><%= new Date (medicamentos[0].DTsaida).toLocaleDateString() %></td> 
+                    <% if (medicamento.quantidadeSaida == '') { %>
+                <td style="display: none;"><%=medicamento.quantidadeSaida%></td>
+                    <%} else { %>
+                <td id="qntdS"><%=medicamento.quantidadeSaida%></td>    
+                    <% } %>       
+            </tr>
+
+                    <% } %> 
+                    <% }) %>
+        </form>
+            </table>
+            <button id="btnAdd" onclick="window.print()">Imprimir Página</button>
+            <button id="btnAdd"><a href="/listamed">Voltar para a tabela</a></button>
+        </div> 
+    </section>  
+   
+</body>
+</html>
+<script>
+
+
+
+
+let date = document.getElementById('date')
+
+    const dateNow = new Date();
+    const dataFormatada = Intl.DateTimeFormat('pt-br', {
+        dateStyle: "short"
+    })
+
+date.textContent = `Data de hoje: ${dataFormatada.format(dateNow)}`
+
+</script>
