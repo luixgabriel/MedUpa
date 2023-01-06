@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="../css/style.css">
+    <title>medUPA</title>
+</head>
+<body>
+    <header>
+        <div class="header">
+            <h1><a href="/">medUPA</a></h1>
+        </div>
+    </header>
+    <section class="main">
+        <div class="form">
+            <form action="/RecebeMedicamento" method="post">
+                <label for="Nome">Nome: </label>
+                <input type="text" name="nome">
+                <label for="Nome">Quantidade: </label>
+                <input type="text" name="quantidade">
+                <label for="Fabricante">Fabricante: </label>
+                <input type="text" name="fabricante" class="">
+                <label for="Tipo">Tipo: </label>
+                <select name="tipo">
+                <option value="none"></option>
+                <option value="Antibiótico">Antibiótico</option>
+                <option value="Analgésico">Analgésico</option>
+                <option value="Anti-inflamatório">Anti-inflamatório</option>
+                </select>
+                <label for="Lote">Lote: </label>
+                <input type="text" name="lote" class="">
+                <label for="Data de fabricação">Data de fabricação: </label>
+                <input type="date" name="DTfabricacao">
+                <label for="Data de validade">Data de validade: </label>
+                <input type="date" name="DTvalidade">
+                <button id="btnAdd">Adicionar Medicamento</button>
+            </form>
+        </div>
+    </section>
+</body>
+</html>

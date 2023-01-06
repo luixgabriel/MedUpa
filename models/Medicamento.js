@@ -14,8 +14,21 @@ class Medicamento{
         } 
     }
 
-    async create(nome,qntd,fabricante,tipo,lote,DTvalidade,DTfabricacao){
-
+    async create(nome,quantidade,fabricante,tipo,lote,DTvalidade,DTfabricacao){
+        try {
+           var result = await db.insert({nome,quantidade,fabricante,tipo,lote,DTvalidade,DTfabricacao}).table('medicamentos')
+           if(result.length > 0){
+            return {status:true, msg: "Medicamento Registrado com sucesso"}
+           }
+           else{
+            return{status:false, msg:"O medicamento não foi preenchido corretamente"}
+           }
+        } catch (error) {
+            console.log(error)
+            return{status:false, msg:"O medicamento não foi preenchido corretamente"}
+        }
+        
+        
     }
 }
 

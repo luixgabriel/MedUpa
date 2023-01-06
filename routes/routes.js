@@ -5,6 +5,9 @@ var medController = require('../controllers/MedicamentoController')
 
 router.get('/', medController.index);
 router.get('/listmed', medController.listMed);
+router.get('/addmed', medController.addMed);
+router.post('/RecebeMedicamento', medController.create)
+
 // router.post('/user', UserController.create);
 // router.get("/user",AdminAuth,UserController.index);
 // router.get("/user/:id",AdminAuth,UserController.findUser);

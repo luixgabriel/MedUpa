@@ -64,22 +64,18 @@
                     <%} else { %>
                     <td><%=medicamento.quantidade%></td>
                     <% } %>
+    
                 
-                
-                
-                <td>  
-
+                <td> 
                     <!-- <a href="/addmed/<%=medicamento.id%>"><i class="fa-solid fa-circle-plus adicionar"></i></a>   -->
                     <form action="/apagarMedicamento" method="post">
-                        <input id="deletar" type="hidden" name="id" value="<%=medicamento.id%>">
-                        <input type="hidden" name="quantidade" value="<%=medicamento.quantidade%>">
-                        <div>
-                            <% if (medicamento.quantidade <= '0') { %>
-                                <i class="fa-solid fa-circle-exclamation danger"></i>
-                        </div>
-                        
-                       
-                        <%} else { %>
+                            <input id="deletar" type="hidden" name="id" value="<%=medicamento.id%>">
+                            <input type="hidden" name="quantidade" value="<%=medicamento.quantidade%>">
+                            <div>
+                                <% if (medicamento.quantidade <= '0') { %>
+                                    <i class="fa-solid fa-circle-exclamation danger"></i>
+                            </div>
+                                <%} else { %>
                             <button id ="delete"><i class="fa-solid fa-circle-xmark apagar"></i></button>
                             <% } %> 
                     </form>
@@ -117,7 +113,7 @@
             
         }
         else{
-            console.log('NAO PORRA')
+            return
         }
     }
     

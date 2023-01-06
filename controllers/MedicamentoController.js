@@ -14,13 +14,21 @@ class MedicamentoController{
            
         } catch (error) {
             console.log(error)
-        }
-
-        
+        } 
     }
-
+    async addMed(req,res){
+        res.render('addMed')
+    }
     async create(req,res){
-        var {nome,qntd,fabricante,tipo,lote,DTvalidade,DTfabricacao} = req.body
+        var {nome,quantidade,fabricante,tipo,lote,DTvalidade,DTfabricacao} = req.body 
+        
+        try {
+           await Med.create(nome,quantidade,fabricante,tipo,lote,DTvalidade,DTfabricacao) 
+           
+        } catch (error) {
+            console.log(error)
+        }
+      
         
     }
 }
