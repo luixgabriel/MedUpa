@@ -23,7 +23,13 @@ class MedicamentoController{
         var {nome,quantidade,fabricante,tipo,lote,DTvalidade,DTfabricacao} = req.body 
         
         try {
-           await Med.create(nome,quantidade,fabricante,tipo,lote,DTvalidade,DTfabricacao) 
+           var result = await Med.create(nome,quantidade,fabricante,tipo,lote,DTvalidade,DTfabricacao) 
+           if(result){
+            res.send(result.msg)
+           }
+           else{
+            res.send(result.msg)
+           }
            
         } catch (error) {
             console.log(error)
