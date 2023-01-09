@@ -4,11 +4,9 @@ var app = express()
 var router = require("./routes/routes")
 var ejs = require('ejs')
  
-// parse application/x-www-form-urlencoded
-app.use(bodyParser.urlencoded({ extended: false }))
-// parse application/json
-app.use(bodyParser.json())
 
+app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.json())
 app.use("/",router);
 app.use(express.static('public'));
 app.set('view engine', 'ejs')

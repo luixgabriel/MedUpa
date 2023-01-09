@@ -15,6 +15,14 @@ class MedicamentoController{
         res.render('pdfGenerated')
     }
 
+   async relConsum(req,res){
+    res.render('relConsum')
+   }
+
+   async relRequest(req,res){
+    res.render('relRequest')
+   }
+
     async pdfGenerate(req,res){
         var resultado = await Med.findAllMed()
         res.render('pdfGenerate',{medicamentos: resultado})
