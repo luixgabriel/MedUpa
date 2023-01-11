@@ -57,7 +57,7 @@
                 <td><%= new Date(medicamento.DTvalidade).toLocaleDateString()%></td> 
                 
                 <% if (medicamento.quantidade <= '0') { %>
-                    <form action="/apagarMedicamento" method="post" onsubmit="confirmarDelete(event,this)">
+                    <form action="/DeleteMedicine" method="post" onsubmit="confirmarDelete(event,this)">
                         
                         <input id="deletar" type="hidden" name="id" value="<%=medicamento.id%>">
                         <input type="hidden" name="quantidade" value="<%=medicamento.quantidade%>"><td><p>Estoque Vazio</p><button id="delMed">Deletar Medicamento</button></td></form>
@@ -68,7 +68,7 @@
                 
                 <td> 
                     <!-- <a href="/addmed/<%=medicamento.id%>"><i class="fa-solid fa-circle-plus adicionar"></i></a>   -->
-                    <form action="/apagarMedicamento" method="post">
+                    <form action="/DeleteMedicine" method="post">
                             <input id="deletar" type="hidden" name="id" value="<%=medicamento.id%>">
                             <input type="hidden" name="quantidade" value="<%=medicamento.quantidade%>">
                             <div>

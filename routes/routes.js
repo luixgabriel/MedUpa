@@ -12,8 +12,8 @@ router.get('/pdfGenerated', medController.pdfGenerated);
 router.get('/pdfGenerate', medController.pdfGenerate);
 router.get('/relComsun', medController.relConsum);
 router.get('/relRequest', medController.relRequest);
-router.post('/RecebeMedicamento', medController.create)
-router.delete('/apagarMedicamento', medController.delete)
+router.post('/ReceiveMedicine', medController.create)
+router.post('/DeleteMedicine', medController.delete)
 router.post('/recStock', medController.update)
 router.post('/receive', medController.exit)
 
