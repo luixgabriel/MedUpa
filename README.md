@@ -16,6 +16,7 @@ O projeto ainda não está finalizado mas já existem muitas funcionalidades que
 ![NODE](https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white)
 ![EXPRESS](https://img.shields.io/badge/Express.js-404D59?style=for-the-badge)
 ![MYSQL](https://img.shields.io/badge/MySQL-00000F?style=for-the-badge&logo=mysql&logoColor=white)
+![git](https://img.shields.io/badge/GIT-E44C30?style=for-the-badge&logo=git&logoColor=white)
 
 
 #### OBS: Uso o renderizador de javascript no HMTL: EJS, e trabalho com o query builder KNEX para as querys no sistema. ####
