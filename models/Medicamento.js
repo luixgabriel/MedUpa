@@ -95,8 +95,9 @@ class Medicamento{
                         return {status: false}
                     })
                 }
+                return
             });
-               
+          return     
         }
     }
 
