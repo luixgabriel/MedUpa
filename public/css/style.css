@@ -28,6 +28,18 @@ a {
     top:80px;
 }
 
+.msgSuc{
+    background-color: #12b82d6b;
+    border: 1px solid rgb(27, 214, 43);
+    border-radius: 5px;
+    padding: 8px;
+    text-align: center;
+    width: 600px;
+    margin: 0 auto;
+    font-size: 1.2rem;
+    
+}
+
 .header {
     background-color: black;
     display: flex;
@@ -36,6 +48,7 @@ a {
     /* width: 100vw; */
     padding: 8px;
     border-bottom: 3px solid white;
+    margin-bottom: 5px;
 }
 .header h1 {
     color: #ED213A;  /* fallback for old browsers */

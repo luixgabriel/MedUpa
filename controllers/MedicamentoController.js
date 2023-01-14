@@ -87,12 +87,19 @@ class MedicamentoController{
     }
 
     async update(req,res){
-        var {id, quantidade} = req.body
-        var result = await Med.updateStock(id, quantidade)
-        if(result.status){
-            res.redirect('/listmed')
+        try {
+            var {id, quantidade} = req.body
+            var result = await Med.updateStock(id, quantidade)
+            req.flash('success', 'Estoque atualizado com sucesso')
+                    req.session.save(()=>{
+                        return res.redirect('/listmed')
+                    })
+        return
+        } catch (error) {
+            console.log(error)
+            return
         }
-
+       
     }
 
     async exit(req,res){

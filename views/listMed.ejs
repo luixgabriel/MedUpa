@@ -15,8 +15,10 @@
             <h1><a href="/" class="animate__flash">medUPA</a></h1>
         </div>
     </header>
+    <% success.forEach(suc => { %>
+        <div class="msgSuc animate__animated animate__bounceIn"><%=suc%></div>
+    <% }) %> 
     <section class="mainLista">
-       
         <div class="relatorio-pedido">
             <table id="tabela">
             <tr>
