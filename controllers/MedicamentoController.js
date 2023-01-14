@@ -53,12 +53,21 @@ class MedicamentoController{
         
         try {
            var result = await Med.create(nome,quantidade,fabricante,tipo,lote,DTvalidade,DTfabricacao) 
-           if(result){
-            res.redirect('/listmed')
-           }
-           else{
-            res.send(result.msg)
-           }
+                if(Med.errors.length > 0){ 
+                    req.flash('errors', Med.errors)
+                    Med.errors = []
+                    req.session.save(()=>{
+                        return res.redirect('back')
+                    })
+                return
+                }
+
+                req.flash('success', 'Medicamento adicionado com sucesso')
+                    req.session.save(()=>{
+                        return res.redirect('/listmed')
+                    })
+
+                return
            
         } catch (error) {
             console.log(error)

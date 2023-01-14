@@ -2,6 +2,9 @@ var db = require('../database/connection')
 
 class Medicamento{
 
+    constructor(errors){
+        this.errors = []
+    }
 
     async findAllMed(){
         try {
@@ -15,10 +18,15 @@ class Medicamento{
     }
 
     async create(nome,quantidade,fabricante,tipo,lote,DTvalidade,DTfabricacao){
+        console.log(this.errors)
+        if(this.errors.length > 0){
+            return
+        }
+       
         try {
             
             if(!nome || nome == "" || !isNaN(nome) || !quantidade || quantidade == "" || isNaN(quantidade) || !fabricante || fabricante == "" || !isNaN(fabricante) || !tipo || tipo == "" || !lote || lote == ""){
-
+                this.errors.push('O medicamento não foi preenchido corretamente')
                 return{status:false, msg:"O medicamento não foi preenchido corretamente"}
             }
             else{

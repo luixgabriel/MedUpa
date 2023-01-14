@@ -15,7 +15,11 @@
         </div>
     </header>
     <section class="main">
+        
         <div class="form">
+            <% errors.forEach(erro => { %>
+                <div class="msg"><%=erro%></div>
+            <% }) %> 
             <form action="/ReceiveMedicine" method="post">
                 <label for="Nome">Nome: </label>
                 <input type="text" name="nome">
