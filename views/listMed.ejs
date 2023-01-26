@@ -106,6 +106,18 @@
 </html>
 <script>
           
+        var msgSuc = document.querySelector('.msgSuc')
+        
+        if(msgSuc !== null){
+            let hideMsg = setInterval(() => {
+            var msgSuc = document.querySelector('.msgSuc')
+            msgSuc.style.display = 'none'
+            if(msgSuc.style.display = 'none'){
+                clearInterval(hideMsg);
+            }
+        }, 3000);
+        }
+        
         function confirmarDelete(event, form){
         event.preventDefault();
         console.log(form)
@@ -118,6 +130,8 @@
         else{
             return
         }
+
+        
     }
     
    
