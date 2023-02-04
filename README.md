@@ -23,5 +23,5 @@ O projeto ainda não está finalizado mas já existem muitas funcionalidades que
 
 <hr/>
 
-https://user-images.githubusercontent.com/70019908/216763108-d7ecf6e0-af13-469a-be99-f7df33fabfdf.mp4
+https://user-images.githubusercontent.com/70019908/216763222-dfaec68c-4586-4fc9-8cd4-b74c09998749.mp4
 
