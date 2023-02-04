@@ -2,7 +2,7 @@
 Sistema gerenciador de medicamentos!
 
 ### Esse sistema foi criado para o meu projeto de conclusão do curso de Sistemas de informação. ###
-Utilizei como base uma farmácia que tinha na UPA em que eu trabalhava como Suporte Técnico, com isso o nome MEDDUPA.
+Utilizei como base uma farmácia que tinha na UPA em que eu trabalhava como Suporte Técnico, com isso o nome MEDUPA.
 
 O projeto ainda não está finalizado mas já existem muitas funcionalidades que permitem o funcionamento dele tranquilamente.
 
@@ -20,3 +20,8 @@ O projeto ainda não está finalizado mas já existem muitas funcionalidades que
 
 
 #### OBS: Uso o renderizador de javascript no HMTL: EJS, e trabalho com o query builder KNEX para as querys no sistema. ####
+
+<hr/>
+
+https://user-images.githubusercontent.com/70019908/216763108-d7ecf6e0-af13-469a-be99-f7df33fabfdf.mp4
+
