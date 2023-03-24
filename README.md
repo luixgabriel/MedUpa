@@ -6,7 +6,7 @@ Utilizei como base uma farmácia que tinha na UPA em que eu trabalhava como Supo
 
 O projeto ainda não está finalizado mas já existem muitas funcionalidades que permitem o funcionamento dele tranquilamente.
 
-### Continuo trabalhando nele ###
+### Continuo estudando e criando idéias para atualizar este projeto ###
 
 # Tecnologias usadas: #
 
